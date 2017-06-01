@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition>
+  <h:head>
+    <h1>Exemplo Quatro - Transações </h1>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+  </h:head>
+
+  <h:body>
+  	
+  	<h:messages/>
+  
+    <h:form id="cadastro">
+      <h:outputLabel value="Número" />
+      <h:inputText id="numero" value="#{ccorrente.numero}"/>
+      <h:outputLabel value="Titular" />
+      <h:inputText id="titular" value="#{ccorrente.titular}"/>
+      <h:outputLabel value="Saldo" />
+      <h:inputText id="saldo" value="#{ccorrente.saldo}">
+      	<f:convertNumber type="number"/>
+      </h:inputText>
+      
+      <h:commandButton action="#{ccorrente.cadastrarContaCorrente}" value="Cadastrar"/>
+      
+    </h:form>
+    
+    <br/>
+    
+    <h:dataTable value="#{ccorrente.contasCorrentes}" var="umaConta" border="0" cellpadding="3" rowClasses="linhaPar,linhaImpar">
+      <h:column>
+        <f:facet name="header">Número</f:facet>
+        #{umaConta.numero}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Titular</f:facet>
+        #{umaConta.titular}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Saldo</f:facet>
+        #{umaConta.saldo}
+      </h:column>
+    </h:dataTable>
+    
+    <br/>
+    
+    <h:form id="transferencia">
+      <h:outputLabel value="Conta Origem" />
+      <h:inputText id="contaOrigem" value="#{ccorrente.contaOrigem}"/>
+      <h:outputLabel value="Conta Destino" />
+      <h:inputText id="contaDestino" value="#{ccorrente.contaDestino}"/>
+      <h:outputLabel value="Valor" />
+      <h:inputText id="valor" value="#{ccorrente.valorTransferencia}">
+      	<f:convertNumber type="number"/>
+      </h:inputText>
+      
+      <h:commandButton action="#{ccorrente.transferir}" value="Transferir"/>
+      
+    </h:form>
+    
+    
+  </h:body>
+</ui:composition>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition>
+  <h:head>
+    <h1>Exemplo Dois - Stateful Session Bean </h1>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+  </h:head>
+
+  <h:body>
+    <h:form id="cadastro">
+      <h:outputLabel value="Título" />
+      <h:inputText id="titulo" value="#{livros.livro.titulo}"/>
+      <h:outputLabel value="Autor(a)" />
+      <h:inputText id="autor" value="#{livros.livro.autor}"/>
+      <h:outputLabel value="Editora" />
+      <h:inputText id="editora" value="#{livros.livro.editora}"/>
+      
+      <h:commandButton action="#{livros.adicionarLivro}" value="Adicionar"/>
+      
+    </h:form>
+    
+    <h:dataTable value="#{livros.livrosTemporarios}" var="umLivroTemp" border="0" cellpadding="3" rowClasses="linhaPar,linhaImpar">
+      <h:column>
+        <f:facet name="header">Título</f:facet>
+        #{umLivroTemp.titulo}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Autor(a)</f:facet>
+        #{umLivroTemp.autor}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Editora</f:facet>
+        #{umLivroTemp.editora}
+      </h:column>
+    </h:dataTable>
+    
+    <h:form id="confirmacao">
+      <h:commandButton action="#{livros.confirmar}" value="Confirmar"/>      
+    </h:form>
+    
+    
+    <h:dataTable value="#{livros.livrosCadastrados}" var="umLivroCad" border="0" cellpadding="3" rowClasses="linhaPar,linhaImpar">
+      <h:column>
+        <f:facet name="header">Título</f:facet>
+        #{umLivroCad.titulo}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Autor(a)</f:facet>
+        #{umLivroCad.autor}
+      </h:column>
+      <h:column>
+        <f:facet name="header">Editora</f:facet>
+        #{umLivroCad.editora}
+      </h:column>
+    </h:dataTable>
+    
+    
+  </h:body>
+</ui:composition>
+</html>
+

@@ -1,0 +1,8 @@
+body { font-family: Verdana,Arial,Helvetica; font-size: 12pt; }
+h1 { font-size: 16pt; color: brown; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+p.linha { border-top-width: 1px; border-top-style: solid; border-top-color: darkgray; }
+th { color: white; background: #404040; }
+.linhaImpar { background: #e0e0e0; }
+.linhaPar { background: #f0f0f0; }
